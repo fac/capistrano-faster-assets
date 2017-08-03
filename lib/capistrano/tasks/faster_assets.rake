@@ -51,7 +51,7 @@ namespace :deploy do
           end
 
           if precompile_required
-            execute(:rake, "assets:precompile")
+            execute(:rake, "assets:precompile #{fetch(:asset_flags)}")
           end
 
           backup_path = release_path.join('assets_manifest_backup')
